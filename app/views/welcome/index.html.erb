@@ -1,2 +1,24 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<html ng-app="ChatApp">
+<head>
+	<title>ChatApp</title>
+</head>
+<body ng-controller="MessagesController as messagesController" ng-init="messagesController.init()">
+	<h1>Chat with Strangers</h1>
+
+	<ul>
+		<li ng-repeat="message in messagesController.getMessages() track by $index">
+			<span>{{message}}</span>
+		</li>
+	</ul>
+
+
+	<form ng-submit="messagesController.addMessage(messagesController.currentMessage)">
+		<input type="text" ng-model="messagesController.currentMessage" id="ChatBox"/>
+		<input type="submit" id="submit" value="Submit">
+	</form>
+
+
+
+
+</body>
+</html>
