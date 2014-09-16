@@ -2,6 +2,7 @@ app.controller('MessagesController',function(){
 
 	this.messages = [];
 	this.currentMessage = "";
+	this.messageCount = 0;
 	var controller = this;
 
 	this.init = function(){
@@ -12,9 +13,10 @@ app.controller('MessagesController',function(){
 	};
 
 	this.addMessage = function(message){
-		controller.messages.push(message);
+		controller.messages.push('Me : '+message);
 		controller.messages.shift();
 		controller.currentMessage = "";
+		this.messageCount++;
 	};
 
 	this.getMessages = function(){

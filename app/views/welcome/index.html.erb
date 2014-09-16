@@ -5,6 +5,8 @@
 <body ng-controller="MessagesController as messagesController" ng-init="messagesController.init()">
 	<h1>Chat with Strangers</h1>
 
+
+	<span> Messages count : {{messagesController.messageCount}}</span>
 	<ul>
 		<li ng-repeat="message in messagesController.getMessages() track by $index">
 			<span>{{message}}</span>
@@ -15,9 +17,8 @@
 	<form ng-submit="messagesController.addMessage(messagesController.currentMessage)">
 		<input type="text" ng-model="messagesController.currentMessage" id="ChatBox"/>
 		<input type="submit" id="submit" value="Submit">
+		<span>{{messagesController.currentMessage.length}} characters..</span>
 	</form>
-
-
 
 
 </body>
